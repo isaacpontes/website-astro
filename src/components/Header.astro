@@ -1,0 +1,34 @@
+---
+import Github from "./icons/Github.astro";
+import Instagram from "./icons/Instagram.astro";
+import Linkedin from "./icons/Linkedin.astro";
+import NavLink from "./NavLink.astro";
+import Text from "./Text.astro";
+---
+
+<header
+  class="py-2 sm:py-4 lg:py-8 flex flex-col md:flex-row justify-between content-center"
+>
+  <a href="/">
+    <div class="flex gap-2 content-center">
+      <img src="/images/logo-no-text.svg" alt="Logo" width="55" height="16" />
+      <Text>isaac_pontes</Text>
+    </div>
+  </a>
+  <nav
+    class="flex flex-col max-w-fit md:flex-row py-2 md:py-0 gap-2 md:gap-6 xl:gap-10 text-zinc-900 dark:text-zinc-50"
+  >
+    <NavLink to="/">início</NavLink>
+    <NavLink to="/portfolio">portfólio</NavLink>
+    <NavLink to="/about">sobre mim</NavLink>
+    <NavLink to="/blog">meu blog</NavLink>
+    <NavLink to="/contact">contate-me</NavLink>
+  </nav>
+  <div
+    class="absolute top-10 right-8 sm:right-16 flex flex-col gap-6 md:relative md:top-0 md:right-0 md:flex-row text-zinc-900 dark:text-zinc-50"
+  >
+    <NavLink to="/"><Github /></NavLink>
+    <NavLink to="/"><Linkedin /></NavLink>
+    <NavLink to="/"><Instagram /></NavLink>
+  </div>
+</header>

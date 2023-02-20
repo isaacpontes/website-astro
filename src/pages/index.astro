@@ -1,0 +1,109 @@
+---
+import Container from "../components/Container.astro";
+import H1 from "../components/H1.astro";
+import H2 from "../components/H2.astro";
+import H3 from "../components/H3.astro";
+import Link from "../components/Link.astro";
+import PrimaryButton from "../components/PrimaryButton.astro";
+import Text from "../components/Text.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="início">
+	<main>
+		<Container>
+			<section
+				class="flex flex-col gap-12 lg:gap-16 xl:gap-24 content-center md:flex-row bg-zinc-200 dark:bg-zinc-900 py-4 sm:py-8 "
+			>
+				<img
+					src="/images/home/avatar.webp"
+					alt="Photo of me"
+					class="hero-image shadow-xl"
+				/>
+				<span class="flex-shrink-0 basis-0.5 w-48 h-0.5 md:w-0.5 md:h-48 m-auto bg-zinc-900 dark:bg-zinc-100"></span>
+				<div class="">
+					<H1>
+						Olá! Eu sou Isaac,
+						<!-- <span class="block"> -->
+							desenvolvedor front-end.
+						<!-- </span> -->
+					</H1>
+					<div class="max-w-4xl mt-4 sm:mt-6 lg:mt-8">
+						<Text>
+							Sou um desenvolvedor full-stack especializado em front-end e
+							trabalho atualmente na
+							<Link to="https://onebitcode.com" newTab={true}>OneBitCode</Link>
+							como instrutor e líder técnico. Atuo principalmente com React e Next.js,
+							sou eclético com CSS e amo experimentar coisas novas. Também compartilho
+							os meus conhecimentos aqui no meu blog.
+						</Text>
+					</div>
+					<div class="flex gap-4 my-4 sm:my-6 lg:my-8">
+						<PrimaryButton>Ir para o blog</PrimaryButton>
+					</div>
+					<H2>Últimas publicações</H2>
+					<section class="flex flex-col md:flex-row gap-6 mt-4 sm:mt-6 lg:mt-8">
+						<a href="#">
+							<article>
+								<img
+									src="/images/home/sustentabio.webp"
+									alt="Post cover"
+									class="rounded-xl mb-2 sm:mb-3 lg:md-4 shadow-lg"
+								/>
+								<H3>
+									<span
+										class="hover:text-orange-600 dark:hover:text-amber-200 transition-colors ease-linear"
+									>
+										Como criei meu novo blog usando Astro e markdown
+									</span>
+								</H3>
+							</article>
+						</a>
+						<a href="#">
+							<article>
+								<img
+									src="/images/home/sustentabio.webp"
+									alt="Post cover"
+									class="rounded-xl mb-2 sm:mb-3 lg:md-4 shadow-lg"
+								/>
+								<H3>
+									<span
+										class="hover:text-orange-600 dark:hover:text-amber-200 transition-colors ease-linear"
+									>
+										Criando o seu primeiro app com Vue.js
+									</span>
+								</H3>
+							</article>
+						</a>
+						<a href="#">
+							<article>
+								<img
+									src="/images/home/sustentabio.webp"
+									alt="Post cover"
+									class="rounded-xl mb-2 sm:mb-3 lg:md-4 shadow-lg"
+								/>
+								<H3>
+									<span
+										class="hover:text-orange-600 dark:hover:text-amber-200 transition-colors ease-linear"
+									>
+										Como instalar e usar o asdf-vm
+									</span>
+								</H3>
+							</article>
+						</a>
+					</section>
+				</div>
+			</section>
+		</Container>
+	</main>
+</Layout>
+
+<style>
+	.hero-image {
+		border-radius: 20rem 20rem 1.5rem 1.5rem;
+		width: 100%;
+		max-width: fit-content;
+		height: 100%;
+		margin: 0 auto;
+	}
+</style>

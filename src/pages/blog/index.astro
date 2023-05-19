@@ -1,7 +1,8 @@
 ---
 import Container from "../../components/Container.astro";
 import H1 from "../../components/H1.astro";
-import H3 from "../../components/H3.astro";
+import H2 from "../../components/H2.astro";
+import Text from "../../components/Text.astro";
 import Layout from "../../layouts/Layout.astro";
 
 const allPosts = await Astro.glob("./posts/*.md");
@@ -10,32 +11,40 @@ const allPosts = await Astro.glob("./posts/*.md");
 <Layout title="meu blog">
   <main>
     <Container>
-      <H1>
-        Artigos sobre tecnologia, programação, a vida, o universo e tudo mais
-      </H1>
+      <H1>Artigos sobre programação, a vida, o universo e tudo mais</H1>
     </Container>
 
-    <ul class="flex flex-col flex-wrap md:flex-row gap-6 mt-4 sm:mt-6 lg:mt-8">
-      {
-        allPosts.map((post) => (
-          <li class="flex-1">
-            <a href={post.url}>
-              <article>
-                <img
-                  src={post.frontmatter.image.url}
-                  alt={post.frontmatter.image.alt}
-                  class="rounded-xl mb-2 sm:mb-3 lg:md-4 shadow-lg"
-                />
-                <H3>
-                  <span class="hover:text-orange-600 dark:hover:text-amber-200 transition-colors ease-linear">
-                    {post.frontmatter.title}
-                  </span>
-                </H3>
-              </article>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+    <Container>
+      <ul
+        class="flex flex-col flex-wrap md:flex-row gap-6 mt-4 sm:mt-6 lg:mt-8"
+      >
+        {
+          allPosts
+            .sort(
+              (a, b) =>
+                new Date(b.frontmatter.pubDate).valueOf() -
+                new Date(a.frontmatter.pubDate).valueOf()
+            )
+            .map((post) => (
+              <li class="flex-1">
+                <a href={post.url}>
+                  <article>
+                    <img
+                      src={post.frontmatter.image.url}
+                      alt={post.frontmatter.image.alt}
+                      class="rounded-xl mb-2 sm:mb-3 lg:md-4 shadow-lg"
+                    />
+                    <H2>
+                      <span class="hover:text-orange-600 dark:hover:text-amber-200 transition-colors ease-linear">
+                        {post.frontmatter.title}
+                      </span>
+                    </H2>
+                  </article>
+                </a>
+              </li>
+            ))
+        }
+      </ul>
+    </Container>
   </main>
 </Layout>

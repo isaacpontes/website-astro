@@ -1,6 +1,7 @@
 ---
 import H1 from "../components/H1.astro";
 import PostContainer from "../components/PostContainer.astro";
+import Prose from "../components/Prose.astro";
 import Layout from "./Layout.astro";
 
 const { frontmatter } = Astro.props;
@@ -13,17 +14,17 @@ const formater = new Intl.DateTimeFormat("pt-BR", {
 
 <Layout title={`blog / ${frontmatter.title}`}>
     <PostContainer>
-        <H1>{frontmatter.title}</H1>
         <img
             src={frontmatter.image.url}
             alt={frontmatter.image.alt}
             class="rounded-xl my-2 sm:my-3 lg:my-4 shadow-lg"
         />
+        <H1>{frontmatter.title}</H1>
         <div class="text-zinc-700 dark:text-zinc-300 mt-2">
             {frontmatter.author}, {formater.format(new Date(frontmatter.pubDate))}
         </div>
-        <section class="mt-4 md:mt-8 text-lg text-zinc-900 dark:text-zinc-50">
+        <Prose>
             <slot />
-        </section>
+        </Prose>
     </PostContainer>
 </Layout>
